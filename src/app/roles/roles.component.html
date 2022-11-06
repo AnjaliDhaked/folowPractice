@@ -1,22 +1,32 @@
 <div class="roles-wrapper">
-    <div class="roles-wrapper-container">
-        <div class="roles-left-side">
-            <div class="roles-inner">
-                <div class="roles-heading">Roles(5)</div>
-                <div class="roles-search"> <input class="search-input" type="text" placeholder="Search.." name="search"></div>
-                <div class="role-name" *ngFor="let role of rolesList; index as i">
-                    <div class="name">{{i+1}}. {{role.name}}</div>
-                    <div class="button">
-                        <div class="icons">
-                            <i class="fa fa-edit" style="font-size:18px"></i>
-                        </div>
-                        <div class="icons2" (click)="deleteRole(role)">
-                            <i class="fa fa-trash" style="font-size:18px"></i>
-                        </div>
-                    </div>
-                   
-                </div>
-                <!-- <div class="role-name">
+  <div class="roles-wrapper-container">
+    <div class="roles-left-side">
+      <div class="roles-inner">
+        <div class="roles-heading">Roles(5)</div>
+        <div class="roles-search">
+          <input
+            class="search-input"
+            type="text"
+            placeholder="Search.."
+            name="search"
+          />
+        </div>
+        <div class="role-name" *ngFor="let role of rolesList; index as i">
+          <div class="name">{{ i + 1 }}. {{ role.name }}</div>
+          <div class="button">
+            <div
+              class="icons"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              <i class="fa fa-edit" style="font-size: 18px"></i>
+            </div>
+            <div class="icons2" (click)="deleteRole(role)">
+              <i class="fa fa-trash" style="font-size: 18px"></i>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="role-name">
                     <div class="name">2. Shipping</div>
                     <div class="button">
                         <div class="icons">
@@ -49,13 +59,143 @@
                         </div>
                     </div>
                 </div> -->
-            </div>
-        </div>
-        <div class="add-roles">
-           
-
-                <router-outlet></router-outlet>
-          
-        </div>
+      </div>
     </div>
+    <div class="add-roles">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<!-- edit admin roles modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+          Edit Role : Role Name
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Email address</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="name@example.com"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Email address</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="name@example.com"
+            />
+          </div>
+        </div>
+        <div class="d-flex">
+          <div class="select-roles-with-options-wrapper">
+            <div class="select-roles-with-options-container">
+              <div
+                class="userRole dropdown-container"
+                (click)="toggleSelect('userRole')"
+              >
+                <label
+                  ><input
+                    type="checkbox"
+                    id="user-all"
+                    value="user-selectall"
+                    (change)="onCheckAllChange($event)"
+                  />
+                  Users</label
+                ><img src="../../assets/icons/dorpdown-icon.png" alt="" /><br />
+                <label><input type="checkbox" value="one" /> One</label><br />
+                <label><input type="checkbox" value="two" /> Two</label><br />
+                <label><input type="checkbox" value="three" /> Three</label
+                ><br />
+                <label><input type="checkbox" value="four" /> Four</label><br />
+                <label><input type="checkbox" value="five" /> Five</label><br />
+              </div>
+            </div>
+          </div>
+          <div class="select-roles-with-options-wrapper">
+            <div class="select-roles-with-options-container">
+              <div
+                class="Posts dropdown-container"
+                (click)="toggleSelect('Posts')"
+              >
+                <label
+                  ><input
+                    type="checkbox"
+                    id="post-all"
+                    value="post-selectall"
+                    (change)="onCheckAllChange($event)"
+                  />
+                  Posts</label
+                ><img src="../../assets/icons/dorpdown-icon.png" alt="" /><br />
+                <label><input type="checkbox" value="one" /> One</label><br />
+                <label><input type="checkbox" value="two" /> Two</label><br />
+                <label><input type="checkbox" value="three" /> Three</label
+                ><br />
+                <label><input type="checkbox" value="four" /> Four</label><br />
+                <label><input type="checkbox" value="five" /> Five</label><br />
+              </div>
+            </div>
+          </div>
+          <div class="select-roles-with-options-wrapper">
+            <div class="select-roles-with-options-container">
+              <div
+                class="Stories dropdown-container"
+                (click)="toggleSelect('Stories')"
+              >
+                <label
+                  ><input
+                    type="checkbox"
+                    id="stories-all"
+                    value="stories-selectall"
+                    (change)="onCheckAllChange($event)"
+                  />
+                  Stories</label
+                ><img src="../../assets/icons/dorpdown-icon.png" alt="" /><br />
+                <label><input type="checkbox" value="one" /> One</label><br />
+                <label><input type="checkbox" value="two" /> Two</label><br />
+                <label><input type="checkbox" value="three" /> Three</label
+                ><br />
+                <label><input type="checkbox" value="four" /> Four</label><br />
+                <label><input type="checkbox" value="five" /> Five</label><br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
 </div>
