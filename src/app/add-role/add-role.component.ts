@@ -5,18 +5,20 @@ import { CommonService } from '../services/common.service';
 @Component({
   selector: 'app-add-role',
   templateUrl: './add-role.component.html',
-  styleUrls: ['./add-role.component.css']
+  styleUrls: ['./add-role.component.css'],
 })
 export class AddRoleComponent implements OnInit {
-  roleName: any;
-  password: any;
-  constructor(private router: Router, private commonService: CommonService) { }
+  roleName: string = '';
+  password: string = '';
+  constructor(private router: Router, private commonService: CommonService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   nextClick() {
+    console.log(this.roleName, this.password);
     this.router.navigate(['/auth/roles/add-new-role']);
-    this.commonService.passValue(this.roleName, this.password);
-
+    setTimeout(() => {
+      this.commonService.roleName.next(this.roleName);
+      this.commonService.password.next(this.password);
+    }, 1000);
   }
 }

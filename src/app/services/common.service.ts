@@ -1,26 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Subject } from 'rxjs';
-
+import { BehaviorSubject, Subject } from 'rxjs';
 
 const DEFAULT = environment.HOST;
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CommonService {
-  public roleName = new Subject<string>();
-  public password = new Subject<string>();
-  constructor(private http: HttpClient) { }
+  public roleName = new BehaviorSubject<string>('');
+  public password = new BehaviorSubject<string>('');
 
-  passValue(data:any, pass:any) {
-    //passing the data as the next observable
-    this.roleName.next(data);
-    this.password.next(pass);
-  }
+  constructor(private http: HttpClient) {}
 
-
-  login(body: { username: string; password: string ; type:string }) {
+  login(body: { username: string; password: string; type: string }) {
     return this.http.post(DEFAULT + '/api/users/v1/login', body);
   }
 
@@ -29,9 +22,9 @@ export class CommonService {
     return this.http.get(DEFAULT + '/api/roles/v1/roles', { ...headers });
   }
 
-  roleDelete(body: any, id:any) {
+  roleDelete(body: any, id: any) {
     var headers = this.get_auth_token();
-    return this.http.delete(DEFAULT + '/api/roles/v1/role/'+id,{
+    return this.http.delete(DEFAULT + '/api/roles/v1/role/' + id, {
       body: body,
       ...headers,
     });
