@@ -3,9 +3,9 @@
                 <div class="breacrumb">Role Info > Role Resources</div>
                 <label for="roleName">Role Name</label>
 
-                <input type="text" class="search-input" placeholder="Enter Role..">
+                <input type="text" class="search-input" placeholder="Enter Role.." [(ngModel)]="roleName">
                 <label for="password">Enter Your Password</label>
-                <input type="text"  class="search-input" placeholder="Enter Password..">
+                <input type="text"  class="search-input" placeholder="Enter Password.." [(ngModel)]="password">
                 <div class="add-role-buttons">
                     <button class="btn-new-role" (click)="nextClick()">Next</button>
                     <button class="btn-admins">Cancel</button>

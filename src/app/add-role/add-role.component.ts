@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonService } from '../services/common.service';
 
 @Component({
   selector: 'app-add-role',
@@ -7,12 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-role.component.css']
 })
 export class AddRoleComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  roleName: any;
+  password: any;
+  constructor(private router: Router, private commonService: CommonService) { }
 
   ngOnInit(): void {
   }
-  nextClick(){
+  nextClick() {
     this.router.navigate(['/auth/roles/add-new-role']);
+    this.commonService.passValue(this.roleName, this.password);
+
   }
 }
