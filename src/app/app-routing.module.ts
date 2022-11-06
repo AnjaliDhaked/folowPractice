@@ -8,6 +8,8 @@ import { ContainerComponent } from './container/container.component';
 import { RolesComponent } from './roles/roles.component';
 import { AddRoleComponent } from './add-role/add-role.component';
 import { AddNewRolesComponent } from './add-new-roles/add-new-roles.component';
+import { PostsComponent } from './posts/posts.component';
+import { AppUsersComponent } from './app-users/app-users.component';
 
 const routes: Routes = [
   {
@@ -28,25 +30,31 @@ const routes: Routes = [
       {
         path: 'roles',
         component: RolesComponent,
-        children:[
+        children: [
           {
-            path:'',
-            component: AddRoleComponent
+            path: '',
+            component: AddRoleComponent,
           },
           {
-            path:'add-new-role',
-            component: AddNewRolesComponent
-          }
-        ]
+            path: 'add-new-role',
+            component: AddNewRolesComponent,
+          },
+        ],
       },
-     
-    ]
-  }
-  
+      {
+        path: 'users',
+        component: AppUsersComponent,
+      },
+      {
+        path: 'posts',
+        component: PostsComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

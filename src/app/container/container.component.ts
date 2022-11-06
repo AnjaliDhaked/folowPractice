@@ -4,74 +4,72 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-container',
   templateUrl: './container.component.html',
-  styleUrls: ['./container.component.css']
+  styleUrls: ['./container.component.css'],
 })
 export class ContainerComponent implements OnInit {
   sidebarList = [
     {
       label: 'Dashboard',
-      class:'fa fa-dashboard',
+      class: 'fa fa-dashboard',
       route: '/auth/users-roles',
       active: false,
       hide: false,
     },
     {
       label: 'Users/Roles',
-      class:'fa fa-users',
-      route: '/auth/roles',
+      class: 'fa fa-users',
+      route: '/auth/users',
       active: false,
       hide: false,
     },
     {
       label: 'Posts',
-      class:'fa fa-sticky-note-o',
-      route: '/auth/users-roles',
+      class: 'fa fa-sticky-note-o',
+      route: '/auth/posts',
       active: false,
       hide: false,
     },
     {
       label: 'Stories',
-      class:'fa fa-history',
+      class: 'fa fa-history',
       route: '/auth/users-roles',
       active: false,
       hide: false,
     },
     {
       label: 'Report Spam',
-      class:'fa fa-exclamation-triangle',
+      class: 'fa fa-exclamation-triangle',
       route: '/auth/users-roles',
       active: false,
       hide: false,
     },
     {
       label: 'Events',
-      class:'fa fa-calendar',
+      class: 'fa fa-calendar',
       route: '/auth/users-roles',
       active: false,
       hide: false,
     },
     {
       label: 'Campaigns',
-      class:'fa fa-edit',
+      class: 'fa fa-edit',
       route: '/auth/users-roles',
       active: false,
       hide: false,
     },
     {
       label: 'Shopes',
-      class:'fa fa-user',
+      class: 'fa fa-user',
       route: '/auth/users-roles',
       active: false,
       hide: false,
     },
-  ]
-
+  ];
 
   currentIndex = -1;
-  constructor( private router: Router) { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   selectMenu(index: number) {
     if (this.currentIndex > -1) {
@@ -81,5 +79,4 @@ export class ContainerComponent implements OnInit {
     this.sidebarList[index].active = true;
     this.router.navigate([this.sidebarList[this.currentIndex].route]);
   }
-
 }

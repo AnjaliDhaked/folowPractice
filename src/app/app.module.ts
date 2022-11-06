@@ -13,6 +13,8 @@ import { AddNewRolesComponent } from './add-new-roles/add-new-roles.component';
 // import {MatCheckboxModule} from '@angular/material/checkbox';
 // import {MatSelectModule} from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PostsComponent } from './posts/posts.component';
+import { AppUsersComponent } from './app-users/app-users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContainerComponent,
     RolesComponent,
     AddRoleComponent,
-    AddNewRolesComponent
+    AddNewRolesComponent,
+    PostsComponent,
+    AppUsersComponent
   ],
   imports: [
     BrowserModule,

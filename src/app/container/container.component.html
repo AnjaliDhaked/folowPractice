@@ -1,60 +1,71 @@
 <div class="dashboard-wrapper">
-    <div class="sidenav-wrapper" >
-      <!-- <div></div> -->
-      <!-- <div  *ngFor="let com of sidebarList;let i = index">{{com.label}}</div> -->
+  <div class="sidenav-wrapper">
+    <!-- <div></div> -->
+    <!-- <div  *ngFor="let com of sidebarList;let i = index">{{com.label}}</div> -->
 
-      <div class="upper-box">
-        <div class="folow-logo">
-            <img class="image-follow" src="../../assets/Group 5137470.png" alt="">
-        </div>
-        <div class="logo-name">
-            <div class="folow">
-                Backend By
-            </div>
-            <div class="backend">Follow</div>
-        </div>
+    <div class="upper-box">
+      <div class="folow-logo">
+        <img class="image-follow" src="../../assets/Group 5137470.png" alt="" />
+      </div>
+      <div class="logo-name">
+        <div class="folow">Backend By</div>
+        <div class="backend">Follow</div>
+      </div>
     </div>
     <div class="sidenav-menu">
-        <div class="sidenav-middle-box">
-            <div  [ngClass]="{ menu: item.active, 'menu-items': true }" *ngFor="let item of sidebarList; index as i"  (click)="selectMenu(i)"><i class={{item.class}} style="font-size:16px"></i>  {{item.label}}</div>
+      <div class="sidenav-middle-box">
+        <div
+          [ngClass]="{ menu: item.active, 'menu-items': true }"
+          *ngFor="let item of sidebarList; index as i"
+          (click)="selectMenu(i)"
+        >
+          <i class="{{ item.class }}" style="font-size: 16px"></i>
+          {{ item.label }}
         </div>
+      </div>
     </div>
     <div class="btn-logout">
-        <button class="logout">Logout</button>
-    </div>
-    </div>
-  
-    <div class="component-render-wrapper">
-      <div class="upper-nav">
-        <div class="upper-right">
-            <div class="welcome-back">
-                <div class="hello-title">Hello</div>
-                <div class="welcome-title"> Welcome Back !</div>
-               </div>
-            <div class="search-box">
-                <form action="/action_page.php">
-                    <input class="search-input" type="text" placeholder="Search.." name="search">
-                    <button class="search-button" type="submit">Search</button>
-                </form>
-            </div>
-            <div class="add-new-role">
-                <button class="btn-new-role">Add New Role</button>
-            </div>
-            <div class="admins">
-                <button class="btn-admins">Admins</button>
-            </div>
-            <div class="notifications">
-                <button class="btn-notification">Noti</button>
-            </div>
-            <div class="john-doe">
-              
-                <button class="btn-john">  <img class="image-side-id" src="../../assets/girl.jpg" alt="">  John Doe</button>
-            </div>
-        </div>
-      </div>
-      <div class="component-container">
-        <router-outlet></router-outlet>
-
-      </div>
+      <button class="logout">Logout</button>
     </div>
   </div>
+
+  <div class="component-render-wrapper">
+    <div class="upper-nav">
+      <div class="upper-right">
+        <div class="welcome-back">
+          <div class="hello-title">Hello</div>
+          <div class="welcome-title">Welcome Back !</div>
+        </div>
+        <div class="search-box">
+          <form action="/action_page.php">
+            <input
+              class="search-input"
+              type="text"
+              placeholder="Search.."
+              name="search"
+            />
+            <button class="search-button" type="submit">Search</button>
+          </form>
+        </div>
+        <div class="add-new-role">
+          <button class="btn-new-role">Add New Role</button>
+        </div>
+        <div class="admins">
+          <button class="btn-admins">Admins</button>
+        </div>
+        <div class="notifications">
+          <button class="btn-notification">Noti</button>
+        </div>
+        <div class="john-doe">
+          <button class="btn-john">
+            <img class="image-side-id" src="../../assets/girl.jpg" alt="" />
+            John Doe
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="component-container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
