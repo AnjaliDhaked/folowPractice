@@ -1,0 +1,69 @@
+.app-users-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.app-user-list-wrapper {
+  width: 40%;
+}
+.app-user-list-header-container {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  margin: 1em;
+}
+
+.app-user-list-header-container > div {
+  background-color: aqua;
+  padding: 0 0.5em;
+}
+.app-user-list-header-container > div:nth-child(2) {
+  margin: auto;
+  background: white;
+  width: 100%;
+  text-align: center;
+}
+
+.app-user-list-item-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em;
+}
+
+.app-user-list-item-profile-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.app-user-list-item-verification {
+  margin-left: auto;
+}
+
+.app-user-list-item-profile-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.app-user-list-body {
+  overflow-y: auto;
+  height: 80vh;
+}
