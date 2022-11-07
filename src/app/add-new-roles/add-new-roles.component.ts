@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonService } from '../services/common.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class AddNewRolesComponent implements OnInit {
   campaigns: boolean = false;
   shopes: boolean = false;
   data: any;
-  constructor(private commonService: CommonService) {}
+  rolesList: any;
+  constructor(private commonService: CommonService, private router: Router) { }
 
   ngOnInit(): void {
     // this.commonService.roleName.getValue();
@@ -47,14 +49,22 @@ export class AddNewRolesComponent implements OnInit {
         campaigns: this.campaigns,
       },
     };
-
+    console.log(data);
     this.commonService.addRole(data).subscribe(
       (res: any) => {
         // this.ListAllRoles();
+        this.router.navigate(['/auth/roles']);
+        setTimeout(() => {
+          this.commonService.roles.next(data);
+        }, 1000);
       },
       (err) => {
         console.log(err);
       }
     );
+
+
+
+
   }
 }

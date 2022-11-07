@@ -15,6 +15,8 @@ import { AddNewRolesComponent } from './add-new-roles/add-new-roles.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostsComponent } from './posts/posts.component';
 import { AppUsersComponent } from './app-users/app-users.component';
+import { UsersComponent } from './users/users.component';
+import { EventsComponent } from './events/events.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,9 @@ import { AppUsersComponent } from './app-users/app-users.component';
     AddRoleComponent,
     AddNewRolesComponent,
     PostsComponent,
-    AppUsersComponent
+    AppUsersComponent,
+    UsersComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,

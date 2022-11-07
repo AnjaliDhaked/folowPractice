@@ -8,16 +8,22 @@ import { CommonService } from '../services/common.service';
 })
 export class RolesComponent implements OnInit, AfterViewInit {
   rolesList: any = [];
-  constructor(private commonService: CommonService) {}
+  constructor(private commonService: CommonService) { }
 
   checkAll: any;
   otherCheckBoxes: any;
 
   ngOnInit(): void {
     this.listAllRoles();
+    this.commonService.roles.subscribe((data: any) => {
+      this.listAllRoles();
+    });
+
   }
 
-  ngAfterViewInit(): void {}
+  ngAfterViewInit(): void {
+    this.listAllRoles();
+  }
 
   onCheckAllChange(event: any) {
     this.checkAll = document.getElementById(event.target.id);

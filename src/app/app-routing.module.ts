@@ -10,6 +10,7 @@ import { AddRoleComponent } from './add-role/add-role.component';
 import { AddNewRolesComponent } from './add-new-roles/add-new-roles.component';
 import { PostsComponent } from './posts/posts.component';
 import { AppUsersComponent } from './app-users/app-users.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {
@@ -42,12 +43,16 @@ const routes: Routes = [
         ],
       },
       {
-        path: 'users',
+        path: 'app-users',
         component: AppUsersComponent,
       },
       {
         path: 'posts',
         component: PostsComponent,
+      },
+      {
+        path: 'users',
+        component: UsersComponent,
       },
     ],
   },
@@ -57,4 +62,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

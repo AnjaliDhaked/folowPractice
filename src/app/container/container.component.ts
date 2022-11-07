@@ -11,14 +11,14 @@ export class ContainerComponent implements OnInit {
     {
       label: 'Dashboard',
       class: 'fa fa-dashboard',
-      route: '/auth/users-roles',
+      route: '/auth/app-users',
       active: false,
       hide: false,
     },
     {
       label: 'Users/Roles',
       class: 'fa fa-users',
-      route: '/auth/users',
+      route: '/auth/roles',
       active: false,
       hide: false,
     },
@@ -32,7 +32,7 @@ export class ContainerComponent implements OnInit {
     {
       label: 'Stories',
       class: 'fa fa-history',
-      route: '/auth/users-roles',
+      route: '/auth/users',
       active: false,
       hide: false,
     },
@@ -67,9 +67,9 @@ export class ContainerComponent implements OnInit {
   ];
 
   currentIndex = -1;
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   selectMenu(index: number) {
     if (this.currentIndex > -1) {

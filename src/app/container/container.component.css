@@ -4,7 +4,7 @@
     overflow: hidden;
     width: 100vw;
   }
-  
+
   .sidenav-wrapper {
     width: 17%;
     height: 100%;
@@ -13,7 +13,7 @@
     flex-direction: column;
     justify-content: space-evenly;
   }
-  
+
   .component-render-wrapper {
     width: 83%;
     position: absolute;
@@ -25,14 +25,14 @@
     background: #f0efef;
     /* margin-top: 90px;  */
   }
-  
+
   .upper-nav {
     position: fixed;
     top: 0;
     height: 11%;
     width: 83%;
   }
-  
+
   .component-container {
     margin-top: 90px;
   }
@@ -206,13 +206,12 @@ opacity: 0.5;
 .search-button {
     background: #222B45;
     border-radius: 3.16515px 0px 0px 3.16515px;
-  
+
     height: 4.5vh;
     color: white;
 }
 .btn-new-role{
-    width: 10vw;
-    height: 4.5vh;
+  padding: 9px;
     background: #2CBF67;
     border-radius: 3px;
     border: none;
@@ -342,7 +341,7 @@ line-height: 26px;
 color: #222B45;
 }
 .mail{
-    
+
 font-family: 'SF Pro Display';
 font-style: normal;
 font-weight: 400;

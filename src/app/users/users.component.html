@@ -1,0 +1,154 @@
+<div class="add-new-role">
+  <button class="btn-new-role" data-bs-toggle="modal" data-bs-target="#AddUserModal">Add New User</button>
+</div>
+
+
+
+<div class="card-boxes">
+  <div class="whole-box" *ngFor="let user of usersList; index as i">
+    <div class="photo">
+      <img class="image-side-card" src={{user.avatar}} alt="">
+    </div>
+    <div class="name-id">
+      <div class="username">{{user.username}}</div>
+      <div class="usermail">{{user.pgp_sym_decrypt}}</div>
+    </div>
+    <div class="edit-delete">
+      <div class="icons" data-bs-toggle="modal" data-bs-target="#EditUserModal" (click)="editUser(user)">
+        <i class="fa fa-edit" style="font-size:18px"></i>
+      </div>
+      <div class="icons2" (click)="deleteUser(user)">
+        <i class="fa fa-trash" style="font-size:18px"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="EditUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Users</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="profile-box" #f="ngForm">
+          <div class="image">
+            <img src="../../assets/girl.jpg" alt="" class="image-person">
+          </div>
+          <div class="title-name">James Hetfield</div>
+          <div class="email-name">@useridadmin001</div>
+          <div class="details-box">
+            <div class="left-box">
+
+              <div for="fName" class="heading">First Name</div>
+              <input type="text" name="fName" id="fName" [(ngModel)]="editUsers.first_name"
+                [ngModelOptions]="{standalone: true}">
+              <div for="designation" class="heading">Designation</div>
+              <input type="text" name="designation" id="designation">
+              <div for="emailAddress" class="heading">Email Address</div>
+              <input type="text" name="emailAddress" id="emailAddress" [(ngModel)]="editUsers.pgp_sym_decrypt"
+                [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="right-box">
+              <div for="lName" class="heading">Last Name</div>
+              <input type="text" name="lName" id="lame" [(ngModel)]="editUsers.last_name"
+                [ngModelOptions]="{standalone: true}">
+              <div for="userRole" class="heading">User Role</div>
+              <input type="text" name="userRole" id="userRole">
+              <div for="password" class="heading">Password</div>
+              <input type="text" name="password" id="password">
+            </div>
+          </div>
+          <div class="save">
+            <button type="submit" data-bs-dismiss="modal" class="btn-save" (click)="save()">Save Changes</button>
+          </div>
+          <div class="cancel">
+            <button class="btn-cancel">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="profile-box">
+    <div class="image">
+      <img src="../../assets/girl.jpg" alt="" class="image-person">
+    </div>
+    <div class="title-name">James Hetfield</div>
+    <div class="email-name">@useridadmin001</div>
+    <div class="details-box">
+      <div class="left-box">
+
+        <div for="fName" class="heading">First Name</div>
+        <input type="text" name="fName" id="fName">
+        <div for="designation" class="heading">Designation</div>
+        <input type="text" name="designation" id="designation">
+        <div for="emailAddress" class="heading">Email Address</div>
+        <input type="text" name="emailAddress" id="emailAddress">
+      </div>
+      <div class="right-box">
+        <div for="lName" class="heading">Last Name</div>
+        <input type="text" name="lName" id="lame">
+        <div for="userRole" class="heading">User Role</div>
+        <input type="text" name="userRole" id="userRole">
+        <div for="password" class="heading">Password</div>
+        <input type="text" name="password" id="password">
+      </div>
+    </div>
+    <div class="save">
+      <button class="btn-save">Save Changes</button>
+    </div>
+    <div class="cancel">
+      <button class="btn-cancel">Cancel</button>
+    </div>
+  </div> -->
+</div>
+
+<div class="modal fade" id="AddUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addUserForm" class="profile-box">
+          <div class="image">
+            <img src="../../assets/girl.jpg" alt="" class="image-person">
+          </div>
+          <div class="title-name">James Hetfield</div>
+          <div class="email-name">@useridadmin001</div>
+          <div class="details-box">
+            <div class="left-box">
+
+              <div for="first_name" class="heading">First Name</div>
+              <input type="text" name="first_name" id="first_name" formControlName="first_name">
+              <div for="designation" class="heading">Designation</div>
+              <input type="text" name="designation" id="designation" formControlName="designation">
+              <div for="email" class="heading">Email Address</div>
+              <input type="text" name="email" id="email" formControlName="email">
+              <div for="role_id" class="heading">Role Id</div>
+              <input type="text" name="role_id" id="role_id" formControlName="role_id">
+            </div>
+            <div class="right-box">
+              <div for="last_name" class="heading">Last Name</div>
+              <input type="text" name="last_name" id="last_name" formControlName="last_name">
+              <div for="username" class="heading">User Name</div>
+              <input type="text" name="username" id="username" formControlName="username">
+              <div for="password" class="heading">Password</div>
+              <input type="text" name="password" id="password" formControlName="password">
+              <div for="avatar" class="heading">Chooose Avtar</div>
+              <input type="file" name="avatar" id="avatar" formControlName="avatar">
+            </div>
+          </div>
+          <div class="save">
+            <button type="submit" data-bs-dismiss="modal" class="btn-save" (click)="addUser()">Save Changes</button>
+          </div>
+          <div class="cancel">
+            <button class="btn-cancel">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
