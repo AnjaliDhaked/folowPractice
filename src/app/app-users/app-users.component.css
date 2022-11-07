@@ -1,3 +1,6 @@
+.app-users-whole-wrapper {
+  height: 85vh;
+}
 .app-users-wrapper {
   position: relative;
   width: 100%;
@@ -66,4 +69,35 @@ p {
 .app-user-list-body {
   overflow-y: auto;
   height: 80vh;
+}
+
+.app-users-tabs {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  padding: 0.5em;
+  background: #ffffff;
+  box-shadow: 0px 0px 21.4762px rgb(23 23 23 / 6%);
+  border-radius: 6.01334px 6.01334px 0px 0px;
+}
+
+.tab {
+  opacity: 0.5;
+  cursor: pointer;
+}
+.tab.active {
+  opacity: 1;
+}
+
+.vl {
+  width: 0.859048px;
+  background: black;
+  opacity: 0.15;
+  height: 20px;
+  margin: 0 0.5em;
 }
