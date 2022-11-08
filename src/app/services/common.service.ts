@@ -12,10 +12,10 @@ export class CommonService {
   public password = new BehaviorSubject<string>('');
   public roleList = new BehaviorSubject<string>('');
   public roles = new BehaviorSubject<object>({});
-//   newItem(item) {
-//     this.subject.next(item);
-// }
-  constructor(private http: HttpClient) { }
+  //   newItem(item) {
+  //     this.subject.next(item);
+  // }
+  constructor(private http: HttpClient) {}
 
   login(body: { username: string; password: string; type: string }) {
     return this.http.post(DEFAULT + '/api/users/v1/login', body);
@@ -26,26 +26,33 @@ export class CommonService {
     return this.http.get(DEFAULT + '/api/roles/v1/roles', { ...headers });
   }
 
-  updateUser(body: any, username:any) {
+  updateUser(body: any, username: any) {
     var headers = this.get_auth_token();
-    return this.http.put(DEFAULT + '/api/users/v1/admin/'+username, body, { ...headers });
+    return this.http.put(DEFAULT + '/api/users/v1/admin/' + username, body, {
+      ...headers,
+    });
   }
 
-  updateRole(body: any, id:any) {
+  updateRole(body: any, id: any) {
     var headers = this.get_auth_token();
-    return this.http.put(DEFAULT + '/api/roles/v1/roles/'+id, body, { ...headers });
+    return this.http.put(DEFAULT + '/api/roles/v1/roles/' + id, body, {
+      ...headers,
+    });
   }
 
-  getAppUsers(){
+  getAppUsers() {
     var headers = this.get_auth_token();
-    return this.http.get(DEFAULT + '/api/appUsers/v1/users?profile_type=2', { ...headers });
+    return this.http.get(DEFAULT + '/api/appUsers/v1/users?profile_type=2', {
+      ...headers,
+    });
   }
 
   addUser(body: any) {
     var headers = this.get_auth_token();
-    return this.http.post(DEFAULT + '/api/users/v1/admin', body, { ...headers });
+    return this.http.post(DEFAULT + '/api/users/v1/admin', body, {
+      ...headers,
+    });
   }
-
 
   roleDelete(body: any, id: any) {
     var headers = this.get_auth_token();

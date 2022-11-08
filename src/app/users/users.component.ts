@@ -5,11 +5,12 @@ import { CommonService } from '../services/common.service';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
   usersList: any;
   editUsers: any = {};
+  avatarFile: any;
   addUserForm = this.fb.group({
     first_name: ['', Validators.required],
     last_name: ['', Validators.required],
@@ -20,7 +21,7 @@ export class UsersComponent implements OnInit {
     username: ['', Validators.required],
     avatar: ['', Validators.required],
   });
-  constructor(private commonService: CommonService, private fb: FormBuilder) { }
+  constructor(private commonService: CommonService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.allUsersList();
@@ -34,7 +35,8 @@ export class UsersComponent implements OnInit {
       },
       (err) => {
         console.log(err);
-      })
+      }
+    );
   }
 
   deleteUser(data: any) {
@@ -53,7 +55,6 @@ export class UsersComponent implements OnInit {
       }
     );
   }
-
 
   editUser(user: any) {
     this.editUsers = user;
@@ -78,19 +79,42 @@ export class UsersComponent implements OnInit {
     );
   }
 
+  convertToString(obj: any) {
+    return JSON.stringify(obj);
+  }
+
+  getAvatarFile($event: any) {
+    this.avatarFile = $event.target.files[0];
+  }
+
   addUser() {
     console.log(this.addUserForm.value);
-    let addUserObj = {
-      first_name: this.addUserForm.value.first_name,
-      last_name: this.addUserForm.value.last_name,
-      designation: this.addUserForm.value.designation,
-      role_id: this.addUserForm.value.role_id,
-      email: this.addUserForm.value.email,
-      password: this.addUserForm.value.password,
-      username: this.addUserForm.value.username,
-      avatar: this.addUserForm.value.avatar,
-    };
-    this.commonService.addUser(addUserObj).subscribe(
+    let fd = new FormData();
+    fd.append(
+      'first_name',
+      this.convertToString(this.addUserForm.value.first_name)
+    );
+    fd.append(
+      'last_name',
+      this.convertToString(this.addUserForm.value.last_name)
+    );
+    fd.append(
+      'designation',
+      this.convertToString(this.addUserForm.value.designation)
+    );
+    fd.append('role_id', this.convertToString(this.addUserForm.value.role_id));
+    fd.append('email', this.convertToString(this.addUserForm.value.email));
+    fd.append(
+      'password',
+      this.convertToString(this.addUserForm.value.password)
+    );
+    fd.append(
+      'username',
+      this.convertToString(this.addUserForm.value.username)
+    );
+    fd.append('avatar', this.avatarFile);
+
+    this.commonService.addUser(fd).subscribe(
       (res: any) => {
         this.allUsersList();
       },
