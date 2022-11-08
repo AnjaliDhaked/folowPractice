@@ -19,15 +19,13 @@
 } */
 .dropdown-checkbox{
     display: flex;
+    margin-left: 2%;
+    margin-top: 2%;
     /* border: 1px solid black; */
 }
 .drop{
     display: flex;
     flex-wrap: wrap;
-}
-.dropdown-checkbox{
-    margin-left: 2%;
-    margin-top: 2%;
 }
 .checkbox{
     display: flex;

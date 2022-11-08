@@ -1,24 +1,21 @@
 <div class="roles-wrapper">
+
+
   <div class="roles-wrapper-container">
-    <div class="roles-left-side">
+
+    <div>
+      <div class="add-new-role rolee">
+        <button class="btn-new-role" data-bs-toggle="modal" data-bs-target="#AddUserModal">Add New Role</button>
+      </div>
       <div class="roles-inner">
-        <div class="roles-heading">Roles(5)</div>
+        <div class="roles-heading">Roles({{rolesCount}})</div>
         <div class="roles-search">
-          <input
-            class="search-input"
-            type="text"
-            placeholder="Search.."
-            name="search"
-          />
+          <input [(ngModel)]="searchText" class="search-input" type="text" placeholder="Search...." name="search" />
         </div>
         <div class="role-name" *ngFor="let role of rolesList; index as i">
           <div class="name">{{ i + 1 }}. {{ role.name }}</div>
           <div class="button">
-            <div
-              class="icons"
-              data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop"
-            >
+            <div class="icons" data-bs-toggle="modal" data-bs-target="#EditRoleModal" (click)="editRole(role)">
               <i class="fa fa-edit" style="font-size: 18px"></i>
             </div>
             <div class="icons2" (click)="deleteRole(role)">
@@ -26,115 +23,463 @@
             </div>
           </div>
         </div>
-        <!-- <div class="role-name">
-                    <div class="name">2. Shipping</div>
-                    <div class="button">
-                        <div class="icons">
-                            <i class="fa fa-edit" style="font-size:18px"></i>
-                        </div>
-                        <div class="icons2">
-                            <i class="fa fa-trash" style="font-size:18px"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="role-name">
-                    <div class="name">3. Posts Only</div>
-                    <div class="button">
-                        <div class="icons">
-                            <i class="fa fa-edit" style="font-size:18px"></i>
-                        </div>
-                        <div class="icons2">
-                            <i class="fa fa-trash" style="font-size:18px"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="role-name">
-                    <div class="name">4. Admin</div>
-                    <div class="button">
-                        <div class="icons">
-                            <i class="fa fa-edit" style="font-size:18px"></i>
-                        </div>
-                        <div class="icons2">
-                            <i class="fa fa-trash" style="font-size:18px"></i>
-                        </div>
-                    </div>
-                </div> -->
       </div>
-    </div>
-    <div class="add-roles">
-      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
 
-<!-- edit admin roles modal -->
-<div
-  class="modal fade"
-  id="staticBackdrop"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false"
-  tabindex="-1"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="AddUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addRoleForm" class="profile-box">
+          <div class="title-name">Add A New Role</div>
+          <div class="details-box">
+            <div class="left-box">
+              <div for="name" class="heading">Role Name</div>
+              <input type="text" name="name" id="name" formControlName="name">
+            </div>
+            <div class="right-box">
+              <div for="password" class="heading">Password</div>
+              <input type="password" name="password" id="password" formControlName="password">
+            </div>
+          </div>
+          <div class="drop">
+            <div class="dropdown-checkbox">
+              <div class="checkbox">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" aria-label="..." formControlName="users">
+                </div>
+              </div>
+
+
+              <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Users
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="dropdown-checkbox">
+              <div class="checkbox">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" aria-label="..." formControlName="posts">
+                </div>
+              </div>
+
+
+              <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Posts
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="dropdown-checkbox">
+              <div class="checkbox">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" aria-label="..." formControlName="stories">
+                </div>
+              </div>
+
+
+              <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Stories
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="dropdown-checkbox">
+              <div class="checkbox">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" aria-label="..." formControlName="reports">
+                </div>
+              </div>
+
+
+              <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Report Spam
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="dropdown-checkbox">
+              <div class="checkbox">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" aria-label="..." formControlName="events">
+                </div>
+              </div>
+
+
+              <div class="dropdown">
+                <div class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Events
+                </div>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="dropdown-checkbox">
+              <div class="checkbox">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" aria-label="..." formControlName="campaigns">
+                </div>
+              </div>
+
+
+              <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Campagin
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="dropdown-checkbox">
+              <div class="checkbox">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" aria-label="..." formControlName="shops">
+                </div>
+              </div>
+
+
+              <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Shops
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </div>
+
+
+            </div>
+
+          </div>
+
+          <div class="add-role-buttons">
+            <button class="btn-new-role" type="submit" data-bs-dismiss="modal" (click)="addRole()">Create Role</button>
+            <button class="btn-admins" data-bs-dismiss="modal" (click)="cancel()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="EditRoleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable model-marging">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Role</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #f="ngForm" class="profile-box">
+          <div class="title-name">Add A New Role</div>
+          <div class="details-box">
+            <div class="left-box">
+              <div for="name" class="heading">Role Name</div>
+              <input type="text" name="name" id="name" [(ngModel)]="editRoles.name"
+                [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="right-box">
+              <div for="password" class="heading">Password</div>
+              <input type="password" name="password" id="password" [(ngModel)]="editRoles.password"
+                [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="drop">
+            <div class="dropdown-checkbox">
+              <div class="checkbox">
+                <div>
+                  <input id="users" class="form-check-input" type="checkbox" value="" aria-label="..."
+                    [(ngModel)]="editRoles.users" [ngModelOptions]="{standalone: true}">
+                  <label class="labels" for="users">Users</label>
+                </div>
+              </div>
+              <!-- <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Users
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </div> -->
+
+
+            </div>
+
+            <div class="dropdown-checkbox">
+              <div class="checkbox">
+                <div>
+                  <input id="posts" class="form-check-input" type="checkbox" value="" aria-label="..."
+                    [(ngModel)]="editRoles.posts" [ngModelOptions]="{standalone: true}">
+                  <label class="labels" for="posts">Posts</label>
+                </div>
+              </div>
+
+
+              <!-- <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Posts
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </div> -->
+
+
+            </div>
+
+            <div class="dropdown-checkbox">
+              <div class="checkbox">
+                <div>
+                  <input id="stories" class="form-check-input" type="checkbox" value="" aria-label="..."
+                    [(ngModel)]="editRoles.stories" [ngModelOptions]="{standalone: true}">
+                  <label class="labels" for="stories">Stories</label>
+                </div>
+              </div>
+
+
+              <!-- <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Stories
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </div> -->
+
+
+            </div>
+
+            <div class="dropdown-checkbox">
+              <div class="checkbox">
+                <div>
+                  <input id="reports" class="form-check-input" type="checkbox" value="" aria-label="..."
+                    [(ngModel)]="editRoles.reports" [ngModelOptions]="{standalone: true}">
+                  <label class="labels" for="reports">Report Spam</label>
+                </div>
+              </div>
+
+
+              <!-- <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Report Spam
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </div> -->
+
+
+            </div>
+
+            <div class="dropdown-checkbox">
+              <div class="checkbox">
+                <div>
+                  <input id="events" class="form-check-input" type="checkbox" value="" aria-label="..."
+                    [(ngModel)]="editRoles.events" [ngModelOptions]="{standalone: true}">
+                  <label class="labels" for="events">Events</label>
+                </div>
+              </div>
+
+
+              <!-- <div class="dropdown">
+                <div class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Events
+                </div>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </div> -->
+
+
+            </div>
+
+            <div class="dropdown-checkbox">
+              <div class="checkbox">
+                <div>
+                  <input id="campaigns" class="form-check-input" type="checkbox" value="" aria-label="..."
+                    [(ngModel)]="editRoles.campaigns" [ngModelOptions]="{standalone: true}">
+                  <label class="labels" for="campaigns">Campagin</label>
+                </div>
+              </div>
+
+
+              <!-- <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Campagin
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </div> -->
+
+
+            </div>
+
+            <div class="dropdown-checkbox">
+              <div class="checkbox">
+                <div>
+                  <input [checked]="true" id="shops" class="form-check-input" type="checkbox" value="" aria-label="..."
+                    [(ngModel)]="editRoles.shops" [ngModelOptions]="{standalone: true}">
+                  <label class="labels" for="shops">Shops</label>
+                </div>
+              </div>
+
+
+              <!-- <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Shops
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </div> -->
+
+
+            </div>
+
+          </div>
+
+          <div class="add-role-buttons">
+            <button class="btn-new-role" type="submit" data-bs-dismiss="modal" (click)="saveRole()">Create Role</button>
+            <button class="btn-admins" data-bs-dismiss="modal" (click)="cancel()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">
           Edit Role : Role Name
         </h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="d-flex">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Email address</label
-            >
-            <input
-              type="email"
-              class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="name@example.com"
-            />
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Email address</label
-            >
-            <input
-              type="email"
-              class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="name@example.com"
-            />
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
           </div>
         </div>
         <div class="d-flex">
           <div class="select-roles-with-options-wrapper">
             <div class="select-roles-with-options-container">
-              <div
-                class="userRole dropdown-container"
-                (click)="toggleSelect('userRole')"
-              >
-                <label
-                  ><input
-                    type="checkbox"
-                    id="user-all"
-                    value="user-selectall"
-                    (change)="onCheckAllChange($event)"
-                  />
-                  Users</label
-                ><img src="../../assets/icons/dorpdown-icon.png" alt="" /><br />
+              <div class="userRole dropdown-container" (click)="toggleSelect('userRole')">
+                <label><input type="checkbox" id="user-all" value="user-selectall"
+                    (change)="onCheckAllChange($event)" />
+                  Users</label><img src="../../assets/icons/dorpdown-icon.png" alt="" /><br />
                 <label><input type="checkbox" value="one" /> One</label><br />
                 <label><input type="checkbox" value="two" /> Two</label><br />
-                <label><input type="checkbox" value="three" /> Three</label
-                ><br />
+                <label><input type="checkbox" value="three" /> Three</label><br />
                 <label><input type="checkbox" value="four" /> Four</label><br />
                 <label><input type="checkbox" value="five" /> Five</label><br />
               </div>
@@ -142,23 +487,13 @@
           </div>
           <div class="select-roles-with-options-wrapper">
             <div class="select-roles-with-options-container">
-              <div
-                class="Posts dropdown-container"
-                (click)="toggleSelect('Posts')"
-              >
-                <label
-                  ><input
-                    type="checkbox"
-                    id="post-all"
-                    value="post-selectall"
-                    (change)="onCheckAllChange($event)"
-                  />
-                  Posts</label
-                ><img src="../../assets/icons/dorpdown-icon.png" alt="" /><br />
+              <div class="Posts dropdown-container" (click)="toggleSelect('Posts')">
+                <label><input type="checkbox" id="post-all" value="post-selectall"
+                    (change)="onCheckAllChange($event)" />
+                  Posts</label><img src="../../assets/icons/dorpdown-icon.png" alt="" /><br />
                 <label><input type="checkbox" value="one" /> One</label><br />
                 <label><input type="checkbox" value="two" /> Two</label><br />
-                <label><input type="checkbox" value="three" /> Three</label
-                ><br />
+                <label><input type="checkbox" value="three" /> Three</label><br />
                 <label><input type="checkbox" value="four" /> Four</label><br />
                 <label><input type="checkbox" value="five" /> Five</label><br />
               </div>
@@ -166,23 +501,13 @@
           </div>
           <div class="select-roles-with-options-wrapper">
             <div class="select-roles-with-options-container">
-              <div
-                class="Stories dropdown-container"
-                (click)="toggleSelect('Stories')"
-              >
-                <label
-                  ><input
-                    type="checkbox"
-                    id="stories-all"
-                    value="stories-selectall"
-                    (change)="onCheckAllChange($event)"
-                  />
-                  Stories</label
-                ><img src="../../assets/icons/dorpdown-icon.png" alt="" /><br />
+              <div class="Stories dropdown-container" (click)="toggleSelect('Stories')">
+                <label><input type="checkbox" id="stories-all" value="stories-selectall"
+                    (change)="onCheckAllChange($event)" />
+                  Stories</label><img src="../../assets/icons/dorpdown-icon.png" alt="" /><br />
                 <label><input type="checkbox" value="one" /> One</label><br />
                 <label><input type="checkbox" value="two" /> Two</label><br />
-                <label><input type="checkbox" value="three" /> Three</label
-                ><br />
+                <label><input type="checkbox" value="three" /> Three</label><br />
                 <label><input type="checkbox" value="four" /> Four</label><br />
                 <label><input type="checkbox" value="five" /> Five</label><br />
               </div>
@@ -198,4 +523,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

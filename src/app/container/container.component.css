@@ -9,9 +9,10 @@
     width: 17%;
     height: 100%;
     background: linear-gradient(348.72deg, #7B0FF5 -48.29%, #3734A9 131.09%);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-rows: 1.3fr 5fr .5fr;
+    /* flex-direction: column; */
+     /* justify-content: space-around; */
   }
 
   .component-render-wrapper {
@@ -106,7 +107,6 @@ border: 1.11979px solid #FFFFFF;
 }
 .sidenav-menu{
     display: flex;
-    display: flex;
     position: relative;
     top: -7%;
     /* justify-content: center; */
@@ -134,15 +134,17 @@ opacity: 0.5;
     opacity: 1;
 }
 .logout{
-    width: 183.62px;
-height: 48.9px;
-left: 36.37px;
-top: 989.16px;
-color: white;
-background: #6D26E0;
-border: none;
-box-shadow: 2.81297px 11.9551px 35.1621px rgba(80, 38, 198, 0.07);
-border-radius: 7.03243px;
+  width: fit-content;
+  height: 48.9px;
+  /* left: 36.37px; */
+  width: 75%;
+  padding: cen;
+  /* top: 989.16px; */
+  color: white;
+  background: #6D26E0;
+  border: none;
+  box-shadow: 2.81297px 11.9551px 35.1621px rgb(80 38 198 / 7%);
+  border-radius: 7.03243px;
 }
 .btn-logout{
     display: flex;
@@ -155,9 +157,17 @@ border-radius: 7.03243px;
 }
 .upper-right{
     height: 100%;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-around; */
+    height: 100%;
+    height: 100%;
+    display: grid;
+    margin-right: 1%;
+    grid-template-columns: .6fr 3fr .3fr .1fr .4fr;
+    justify-content: center;
+    align-items: center;
+    justify-items: end;
 }
 .lower-right{
     height: 80%;
@@ -205,7 +215,9 @@ opacity: 0.5;
 
 .search-button {
     background: #222B45;
-    border-radius: 3.16515px 0px 0px 3.16515px;
+    border-bottom-right-radius: 5%;
+    border-top-right-radius: 5%;
+
 
     height: 4.5vh;
     color: white;
@@ -290,9 +302,12 @@ border: none;
     opacity: 0.5;
     border: none;
 }
+.btn-notification{
+  /* padding: 76%; */
+}
 .btn-admins , .btn-notification , .btn-john{
     border: none;
-    width: 8vw;
+    width: fit-content;
     height: 4.5vh;
     background: white;
     border-radius: 3px;

@@ -17,6 +17,7 @@ import { PostsComponent } from './posts/posts.component';
 import { AppUsersComponent } from './app-users/app-users.component';
 import { UsersComponent } from './users/users.component';
 import { EventsComponent } from './events/events.component';
+import { SearchPipe } from './pipe/search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { EventsComponent } from './events/events.component';
     PostsComponent,
     AppUsersComponent,
     UsersComponent,
-    EventsComponent
+    EventsComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

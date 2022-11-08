@@ -1,6 +1,4 @@
 .roles-wrapper-container {
-  display: flex;
-  justify-content: space-around;
   background-color: white;
   position: absolute;
   top: 14%;
@@ -17,7 +15,8 @@
   width: 50%;
 }
 .role-name {
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.5fr 13%;
 }
 .add-roles {
   display: flex;
@@ -27,8 +26,9 @@
 .roles-inner {
   display: grid;
   grid-row-gap: 7%;
-  margin-left: 14%;
-  margin-top: 8%;
+  margin-left: 10%;
+  margin-top: 2%;
+
 }
 .roles-heading {
   font-family: "Exo";
@@ -54,10 +54,6 @@
   font-size: 16.8808px;
   color: #222b45;
   opacity: 0.99;
-}
-.role-name {
-  display: grid;
-  grid-template-columns: 0.7fr 20%;
 }
 .button {
   display: flex;
@@ -118,4 +114,100 @@
 .select-roles-with-options-container.active {
   height: 100px;
   overflow: auto;
+}
+.btn-new-role{
+  padding: 9px;
+    margin-left: 2%;
+  background: #2CBF67;
+  border-radius: 3px;
+  border: none;
+}
+
+.details-box{
+  display: flex;
+  grid-gap: 4%;
+}
+.left-box .right-box{
+  display: flex;
+  flex-direction: column;
+}
+.drop{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 6%;
+}
+.btn-save{
+  background: #2CBF67;
+  color: white;
+border-radius: 6px;
+width: 13vw;
+height: 5vh;
+border: none;
+}
+.btn-cancel{
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 500;
+  background-color: white;
+  font-size: 14px;
+  color: #222B45;
+  opacity: 0.5;
+  border: none;
+}
+.dropdown-checkbox{
+  display: flex;
+  margin-left: 2%;
+  margin-top: 2%;
+  /* border: 1px solid black; */
+}
+.checkbox{
+  display: flex;
+    align-items: center;
+}
+.add-role-buttons{
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 4%;
+}
+.btn-admins{
+  width: fit-content;
+  height: 4.5vh;
+  background: white;
+  border-radius: 3px;
+  border: none;
+}
+.rolee{
+  display: flex;
+  justify-content: end;
+  justify-content: end;
+  margin-top: 3%;
+  margin-right: 3%;
+}
+.labels{
+
+  margin-left: 0.4vw;
+
+}
+.model-marging{
+  margin-top: 10%;
+}
+
+
+
+
+
+
+
+
+.save, .cancel{
+  margin-top: 1%;
+}
+
+.btn-new-role{
+  margin-left: 2%;
+  width: fit-content;
+  background: #2CBF67;
+  border-radius: 3px;
+  border: none;
 }

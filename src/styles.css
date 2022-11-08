@@ -2,3 +2,6 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: "Exo";font-style: normal }
+html * {
+  font-family: "Exo";font-style: normal
+}

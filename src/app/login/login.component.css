@@ -5,7 +5,7 @@
 .containe {
     display: flex;
     flex-direction: row;
-    
+
   /* flex-wrap: wrap; */
 }
 
@@ -31,7 +31,7 @@
     flex-direction: column;
     /* border: 1px solid green; */
     justify-content: space-between;
-    height: 57%;
+    height: 46%;
 }
 
 .title {
@@ -69,13 +69,13 @@ opacity: 0.99;
 }
 
 .input-id :focus{
-   
+
         border: 3px solid rgba(233, 72, 72, 0.642);
 }
 
 .login-checkbox {
     /* background-color: blueviolet; */
- 
+
 background: #FFFFFF;
 opacity: 0.75;
 border-radius: 5.44823px;

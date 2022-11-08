@@ -14,58 +14,67 @@
     </div>
     <div class="sidenav-menu">
       <div class="sidenav-middle-box">
-        <div
-          [ngClass]="{ menu: item.active, 'menu-items': true }"
-          *ngFor="let item of sidebarList; index as i"
-          (click)="selectMenu(i)"
-        >
-          <i class="{{ item.class }}" style="font-size: 16px"></i>
-          {{ item.label }}
+        <div [ngClass]="{ menu: item.active, 'menu-items': true }" *ngFor="let item of sidebarList; index as i">
+          <div *ngIf="item.label!=='Users/Roles'" (click)="selectMenu(i)">
+            <i class="{{ item.class }}" style="font-size: 16px"></i>
+            {{ item.label }}
+          </div>
+
+          <!-- <div *ngIf="item.label=='Users/Roles'" class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  Item #1
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Placeholder
+                </div>
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
+
     </div>
     <div class="btn-logout">
       <button class="logout">Logout</button>
     </div>
-  </div>
 
-  <div class="component-render-wrapper">
-    <div class="upper-nav">
-      <div class="upper-right">
-        <div class="welcome-back">
-          <div class="hello-title">Hello</div>
-          <div class="welcome-title">Welcome Back !</div>
-        </div>
-        <div class="search-box">
-          <form action="/action_page.php">
-            <input
-              class="search-input"
-              type="text"
-              placeholder="Search.."
-              name="search"
-            />
-            <button class="search-button" type="submit">Search</button>
-          </form>
-        </div>
-        <div class="add-new-role">
-          <button class="btn-new-role">Add New Role</button>
-        </div>
-        <div class="admins">
-          <button class="btn-admins">Admins</button>
-        </div>
-        <div class="notifications">
-          <button class="btn-notification">Noti</button>
-        </div>
-        <div class="john-doe">
-          <button class="btn-john">
-            <img class="image-side-id" src="../../assets/girl.jpg" alt="" />
-            John Doe
-          </button>
+    <div class="component-render-wrapper">
+      <div class="upper-nav">
+        <div class="upper-right">
+          
+          <div class="welcome-back">
+            <div class="hello-title">Hello</div>
+            <div class="welcome-title">Welcome Back !</div>
+          </div>
+          <div class="search-box">
+            <form action="/action_page.php">
+              <input class="search-input" type="text" placeholder="Search.." name="search" />
+              <button class="search-button" type="submit">Search</button>
+            </form>
+          </div>
+          <div class="admins">
+            <button class="btn-admins"> <i class="fa fa-user" style="font-size: 16px"></i> Admins</button>
+          </div>
+          <div class="notifications">
+            <button class="btn-notification"><i class='far fa-bell' style='font-size:16px'></i></button>
+          </div>
+          <div class="john-doe">
+            <button class="btn-john">
+              <img class="image-side-id" src="../../assets/girl.jpg" alt="" />
+              John Doe
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="component-container">
-      <router-outlet></router-outlet>
+
+      <div class="component-container">
+        <hr>
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
-</div>

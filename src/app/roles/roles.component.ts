@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { CommonService } from '../services/common.service';
 
 @Component({
@@ -8,10 +9,25 @@ import { CommonService } from '../services/common.service';
 })
 export class RolesComponent implements OnInit, AfterViewInit {
   rolesList: any = [];
-  constructor(private commonService: CommonService) { }
+  addRoleForm = this.fb.group({
+    name: ['', Validators.required],
+    password: ['', Validators.required],
+    posts: [false, Validators.required],
+    shops: [false, Validators.required],
+    users: [false, Validators.required],
+    events: [false, Validators.required],
+    reports: [false, Validators.required],
+    stories: [false, Validators.required],
+    campaigns: [false, Validators.required],
 
+  });
+  searchText!: string;
   checkAll: any;
   otherCheckBoxes: any;
+  editRoles: any = {};
+  rolesCount: number | undefined;
+  constructor(private commonService: CommonService, private fb: FormBuilder) { }
+
 
   ngOnInit(): void {
     this.listAllRoles();
@@ -43,6 +59,7 @@ export class RolesComponent implements OnInit, AfterViewInit {
     this.commonService.getAllRoles().subscribe(
       (res: any) => {
         this.rolesList = res.response;
+        this.rolesCount = this.rolesList.length;
       },
       (err) => {
         console.log(err);
@@ -67,6 +84,65 @@ export class RolesComponent implements OnInit, AfterViewInit {
     );
   }
 
+  addRole() {
+    console.log(this.addRoleForm.value);
+    let addRoleObj = {
+      name: this.addRoleForm.value.name,
+      roles: {
+        posts: this.addRoleForm.value.posts,
+        shops: this.addRoleForm.value.shops,
+        users: this.addRoleForm.value.users,
+        events: this.addRoleForm.value.events,
+        reports: this.addRoleForm.value.reports,
+        stories: this.addRoleForm.value.stories,
+        campaigns: this.addRoleForm.value.campaigns,
+      },
+      password: this.addRoleForm.value.password
+    };
+    this.commonService.addRole(addRoleObj).subscribe(
+      (res: any) => {
+        this.listAllRoles();
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+    this.addRoleForm.reset();
+  }
+
+  cancel() {
+    this.addRoleForm.reset()
+  }
+
+  editRole(role: any) {
+    this.editRoles = role;
+    console.log(role);
+
+  }
+  saveRole() {
+    let roleId = this.editRoles.id;
+    let editRoleObj = {
+      name: this.editRoles.name,
+      roles: {
+        posts: this.editRoles.posts,
+        shops: this.editRoles.shops,
+        users: this.editRoles.users,
+        events: this.editRoles.events,
+        reports: this.editRoles.reports,
+        stories: this.editRoles.stories,
+        campaigns: this.editRoles.campaigns,
+      },
+      password: this.editRoles.password
+    };
+    this.commonService.updateRole(editRoleObj, roleId).subscribe(
+      (res: any) => {
+        this.listAllRoles();
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
+  }
   toggleSelect(which_role: string) {
     let element = document.querySelector(`.${which_role}`);
     element?.parentElement?.classList.contains('active')

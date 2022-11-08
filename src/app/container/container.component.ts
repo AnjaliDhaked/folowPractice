@@ -7,10 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./container.component.css'],
 })
 export class ContainerComponent implements OnInit {
+  openAccor: boolean = false;
+  userRolesData: any;
   sidebarList = [
     {
       label: 'Dashboard',
-      class: 'fa fa-dashboard',
+      class: 'fa fa-users',
       route: '/auth/app-users',
       active: false,
       hide: false,
@@ -18,13 +20,40 @@ export class ContainerComponent implements OnInit {
     {
       label: 'Users/Roles',
       class: 'fa fa-users',
+      route: [{
+        label: 'Users',
+        class: 'fa fa-users',
+        route: '/auth/roles',
+        active: false,
+        hide: false,
+      },
+      {
+        label: 'Roles',
+        class: 'fa fa-users',
+        route: '/auth/roles',
+        active: false,
+        hide: false,
+      }],
+      active: false,
+      hide: false,
+    },
+    {
+      label: 'Users',
+      class: 'fa fa-users',
+      route: '/auth/users',
+      active: false,
+      hide: false,
+    },
+    {
+      label: 'Roles',
+      class: 'fa fa-users',
       route: '/auth/roles',
       active: false,
       hide: false,
     },
     {
       label: 'Posts',
-      class: 'fa fa-sticky-note-o',
+      class: 'fa fa-users',
       route: '/auth/posts',
       active: false,
       hide: false,
@@ -72,6 +101,17 @@ export class ContainerComponent implements OnInit {
   ngOnInit(): void { }
 
   selectMenu(index: number) {
+    console.log(index);
+    if (index == 1) {
+      this.openAccor = true;
+      this.sidebarList.forEach((data) => {
+        if (data.label == 'Users/Roles') {
+          this.userRolesData = data.route;
+          console.log(this.userRolesData);
+        }
+      })
+
+    }
     if (this.currentIndex > -1) {
       this.sidebarList[this.currentIndex].active = false;
     }
