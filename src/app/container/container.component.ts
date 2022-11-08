@@ -13,7 +13,7 @@ export class ContainerComponent implements OnInit {
     {
       label: 'Dashboard',
       class: 'fa fa-users',
-      route: '/auth/app-users',
+      route: '',
       active: false,
       hide: false,
     },
@@ -34,6 +34,13 @@ export class ContainerComponent implements OnInit {
         active: false,
         hide: false,
       }],
+      active: false,
+      hide: false,
+    },
+    {
+      label: 'App User',
+      class: 'fa fa-users',
+      route: '/auth/app-users',
       active: false,
       hide: false,
     },

@@ -11,17 +11,17 @@
             </div>
           </div>
           <div class="app-user-list-body">
-            <div class="app-user-list-item-container">
+            <div class="app-user-list-item-container" *ngFor="let user of allUserList; index as i">
               <div class="app-user-list-item-sr-no">
-                <p>01</p>
+                <p>{{i+1}}</p>
               </div>
               <div class="app-user-list-item-profile-container">
                 <div class="app-user-list-item-profile-image">
-                  <img src="../../assets/icon-photo.png" alt="" />
+                  <img src={{user.avatar}} alt="" />
                 </div>
                 <div class="app-user-list-item-profile-name-id">
-                  <h5>Dean Wincher</h5>
-                  <p>iserid 12345</p>
+                  <h5>{{user.username}}</h5>
+                  <p>{{user.userid}}</p>
                 </div>
               </div>
               <div class="app-user-list-item-verification">
@@ -30,258 +30,14 @@
                 </div>
               </div>
             </div>
-            <div class="app-user-list-item-container">
-              <div class="app-user-list-item-sr-no">
-                <p>01</p>
-              </div>
-              <div class="app-user-list-item-profile-container">
-                <div class="app-user-list-item-profile-image">
-                  <img src="../../assets/icon-photo.png" alt="" />
-                </div>
-                <div class="app-user-list-item-profile-name-id">
-                  <h5>Dean Wincher</h5>
-                  <p>iserid 12345</p>
-                </div>
-              </div>
-              <div class="app-user-list-item-verification">
-                <div class="app-user-list-item-verification-image">
-                  <img src="../../assets/checkmark-circle.png" alt="" />
-                </div>
-              </div>
-            </div>
-            <div class="app-user-list-item-container">
-              <div class="app-user-list-item-sr-no">
-                <p>01</p>
-              </div>
-              <div class="app-user-list-item-profile-container">
-                <div class="app-user-list-item-profile-image">
-                  <img src="../../assets/icon-photo.png" alt="" />
-                </div>
-                <div class="app-user-list-item-profile-name-id">
-                  <h5>Dean Wincher</h5>
-                  <p>iserid 12345</p>
-                </div>
-              </div>
-              <div class="app-user-list-item-verification">
-                <div class="app-user-list-item-verification-image">
-                  <img src="../../assets/checkmark-circle.png" alt="" />
-                </div>
-              </div>
-            </div>
-            <div class="app-user-list-item-container">
-              <div class="app-user-list-item-sr-no">
-                <p>01</p>
-              </div>
-              <div class="app-user-list-item-profile-container">
-                <div class="app-user-list-item-profile-image">
-                  <img src="../../assets/icon-photo.png" alt="" />
-                </div>
-                <div class="app-user-list-item-profile-name-id">
-                  <h5>Dean Wincher</h5>
-                  <p>iserid 12345</p>
-                </div>
-              </div>
-              <div class="app-user-list-item-verification">
-                <div class="app-user-list-item-verification-image">
-                  <img src="../../assets/checkmark-circle.png" alt="" />
-                </div>
-              </div>
-            </div>
-            <div class="app-user-list-item-container">
-              <div class="app-user-list-item-sr-no">
-                <p>01</p>
-              </div>
-              <div class="app-user-list-item-profile-container">
-                <div class="app-user-list-item-profile-image">
-                  <img src="../../assets/icon-photo.png" alt="" />
-                </div>
-                <div class="app-user-list-item-profile-name-id">
-                  <h5>Dean Wincher</h5>
-                  <p>iserid 12345</p>
-                </div>
-              </div>
-              <div class="app-user-list-item-verification">
-                <div class="app-user-list-item-verification-image">
-                  <img src="../../assets/checkmark-circle.png" alt="" />
-                </div>
-              </div>
-            </div>
-            <div class="app-user-list-item-container">
-              <div class="app-user-list-item-sr-no">
-                <p>01</p>
-              </div>
-              <div class="app-user-list-item-profile-container">
-                <div class="app-user-list-item-profile-image">
-                  <img src="../../assets/icon-photo.png" alt="" />
-                </div>
-                <div class="app-user-list-item-profile-name-id">
-                  <h5>Dean Wincher</h5>
-                  <p>iserid 12345</p>
-                </div>
-              </div>
-              <div class="app-user-list-item-verification">
-                <div class="app-user-list-item-verification-image">
-                  <img src="../../assets/checkmark-circle.png" alt="" />
-                </div>
-              </div>
-            </div>
-            <div class="app-user-list-item-container">
-              <div class="app-user-list-item-sr-no">
-                <p>01</p>
-              </div>
-              <div class="app-user-list-item-profile-container">
-                <div class="app-user-list-item-profile-image">
-                  <img src="../../assets/icon-photo.png" alt="" />
-                </div>
-                <div class="app-user-list-item-profile-name-id">
-                  <h5>Dean Wincher</h5>
-                  <p>iserid 12345</p>
-                </div>
-              </div>
-              <div class="app-user-list-item-verification">
-                <div class="app-user-list-item-verification-image">
-                  <img src="../../assets/checkmark-circle.png" alt="" />
-                </div>
-              </div>
-            </div>
-            <div class="app-user-list-item-container">
-              <div class="app-user-list-item-sr-no">
-                <p>01</p>
-              </div>
-              <div class="app-user-list-item-profile-container">
-                <div class="app-user-list-item-profile-image">
-                  <img src="../../assets/icon-photo.png" alt="" />
-                </div>
-                <div class="app-user-list-item-profile-name-id">
-                  <h5>Dean Wincher</h5>
-                  <p>iserid 12345</p>
-                </div>
-              </div>
-              <div class="app-user-list-item-verification">
-                <div class="app-user-list-item-verification-image">
-                  <img src="../../assets/checkmark-circle.png" alt="" />
-                </div>
-              </div>
-            </div>
-            <div class="app-user-list-item-container">
-              <div class="app-user-list-item-sr-no">
-                <p>01</p>
-              </div>
-              <div class="app-user-list-item-profile-container">
-                <div class="app-user-list-item-profile-image">
-                  <img src="../../assets/icon-photo.png" alt="" />
-                </div>
-                <div class="app-user-list-item-profile-name-id">
-                  <h5>Dean Wincher</h5>
-                  <p>iserid 12345</p>
-                </div>
-              </div>
-              <div class="app-user-list-item-verification">
-                <div class="app-user-list-item-verification-image">
-                  <img src="../../assets/checkmark-circle.png" alt="" />
-                </div>
-              </div>
-            </div>
-            <div class="app-user-list-item-container">
-              <div class="app-user-list-item-sr-no">
-                <p>01</p>
-              </div>
-              <div class="app-user-list-item-profile-container">
-                <div class="app-user-list-item-profile-image">
-                  <img src="../../assets/icon-photo.png" alt="" />
-                </div>
-                <div class="app-user-list-item-profile-name-id">
-                  <h5>Dean Wincher</h5>
-                  <p>iserid 12345</p>
-                </div>
-              </div>
-              <div class="app-user-list-item-verification">
-                <div class="app-user-list-item-verification-image">
-                  <img src="../../assets/checkmark-circle.png" alt="" />
-                </div>
-              </div>
-            </div>
-            <div class="app-user-list-item-container">
-              <div class="app-user-list-item-sr-no">
-                <p>01</p>
-              </div>
-              <div class="app-user-list-item-profile-container">
-                <div class="app-user-list-item-profile-image">
-                  <img src="../../assets/icon-photo.png" alt="" />
-                </div>
-                <div class="app-user-list-item-profile-name-id">
-                  <h5>Dean Wincher</h5>
-                  <p>iserid 12345</p>
-                </div>
-              </div>
-              <div class="app-user-list-item-verification">
-                <div class="app-user-list-item-verification-image">
-                  <img src="../../assets/checkmark-circle.png" alt="" />
-                </div>
-              </div>
-            </div>
-            <div class="app-user-list-item-container">
-              <div class="app-user-list-item-sr-no">
-                <p>01</p>
-              </div>
-              <div class="app-user-list-item-profile-container">
-                <div class="app-user-list-item-profile-image">
-                  <img src="../../assets/icon-photo.png" alt="" />
-                </div>
-                <div class="app-user-list-item-profile-name-id">
-                  <h5>Dean Wincher</h5>
-                  <p>iserid 12345</p>
-                </div>
-              </div>
-              <div class="app-user-list-item-verification">
-                <div class="app-user-list-item-verification-image">
-                  <img src="../../assets/checkmark-circle.png" alt="" />
-                </div>
-              </div>
-            </div>
-            <div class="app-user-list-item-container">
-              <div class="app-user-list-item-sr-no">
-                <p>01</p>
-              </div>
-              <div class="app-user-list-item-profile-container">
-                <div class="app-user-list-item-profile-image">
-                  <img src="../../assets/icon-photo.png" alt="" />
-                </div>
-                <div class="app-user-list-item-profile-name-id">
-                  <h5>Dean Wincher</h5>
-                  <p>iserid 12345</p>
-                </div>
-              </div>
-              <div class="app-user-list-item-verification">
-                <div class="app-user-list-item-verification-image">
-                  <img src="../../assets/checkmark-circle.png" alt="" />
-                </div>
-              </div>
-            </div>
-            <div class="app-user-list-item-container">
-              <div class="app-user-list-item-sr-no">
-                <p>01</p>
-              </div>
-              <div class="app-user-list-item-profile-container">
-                <div class="app-user-list-item-profile-image">
-                  <img src="../../assets/icon-photo.png" alt="" />
-                </div>
-                <div class="app-user-list-item-profile-name-id">
-                  <h5>Dean Wincher</h5>
-                  <p>iserid 12345</p>
-                </div>
-              </div>
-              <div class="app-user-list-item-verification">
-                <div class="app-user-list-item-verification-image">
-                  <img src="../../assets/checkmark-circle.png" alt="" />
-                </div>
-              </div>
-            </div>
+
+
           </div>
         </div>
       </div>
-      <div class="app-user-profile-wrapper"></div>
+      <div class="app-user-profile-wrapper">hi</div>
     </div>
+
   </ng-container>
 
   <ng-container *ngIf="gridViewActive">
@@ -289,17 +45,11 @@
   </ng-container>
 
   <div class="app-users-tabs">
-    <div
-      class="{{ listViewActive ? 'tab active' : 'tab' }}"
-      (click)="listViewTab()"
-    >
+    <div class="{{ listViewActive ? 'tab active' : 'tab' }}" (click)="listViewTab()">
       List View
     </div>
     <div class="vl"></div>
-    <div
-      class="{{ gridViewActive ? 'tab active' : 'tab' }}"
-      (click)="gridViewTab()"
-    >
+    <div class="{{ gridViewActive ? 'tab active' : 'tab' }}" (click)="gridViewTab()">
       Grid View
     </div>
   </div>

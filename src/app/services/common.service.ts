@@ -36,6 +36,11 @@ export class CommonService {
     return this.http.put(DEFAULT + '/api/roles/v1/roles/'+id, body, { ...headers });
   }
 
+  getAppUsers(){
+    var headers = this.get_auth_token();
+    return this.http.get(DEFAULT + '/api/appUsers/v1/users?profile_type=2', { ...headers });
+  }
+
   addUser(body: any) {
     var headers = this.get_auth_token();
     return this.http.post(DEFAULT + '/api/users/v1/admin', body, { ...headers });
