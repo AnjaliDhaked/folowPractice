@@ -12,10 +12,11 @@ export class CommonService {
   public password = new BehaviorSubject<string>('');
   public roleList = new BehaviorSubject<string>('');
   public roles = new BehaviorSubject<object>({});
+  public loginData: any;
   //   newItem(item) {
   //     this.subject.next(item);
   // }
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   login(body: { username: string; password: string; type: string }) {
     return this.http.post(DEFAULT + '/api/users/v1/login', body);
@@ -43,6 +44,13 @@ export class CommonService {
   getAppUsers() {
     var headers = this.get_auth_token();
     return this.http.get(DEFAULT + '/api/appUsers/v1/users?profile_type=2', {
+      ...headers,
+    });
+  }
+
+  getAppUserProfile(userId: any) {
+    var headers = this.get_auth_token();
+    return this.http.get(DEFAULT + '/api/appUsers/v1/users/' + userId, {
       ...headers,
     });
   }

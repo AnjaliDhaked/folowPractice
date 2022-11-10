@@ -11,6 +11,7 @@
             </div>
           </div>
           <div class="app-user-list-body">
+
             <div class="app-user-list-item-container" *ngFor="let user of allUserList; index as i">
               <div class="app-user-list-item-sr-no">
                 <p>{{i+1}}</p>
@@ -20,7 +21,7 @@
                   <img src={{user.avatar}} alt="" />
                 </div>
                 <div class="app-user-list-item-profile-name-id">
-                  <h5>{{user.username}}</h5>
+                  <h5 (click)="getUserProfile(user)">{{user.username}}</h5>
                   <p>{{user.userid}}</p>
                 </div>
               </div>
@@ -35,13 +36,357 @@
           </div>
         </div>
       </div>
-      <div class="app-user-profile-wrapper">hi</div>
+      <!-- <div class="middle-box">
+        dasd
+      </div> -->
+      <div *ngIf="profileView" class="app-user-profile-wrapper">
+        <div *ngFor="let profile of appUserProfile; index as i">
+          <div class="background-image">
+            <img class="background-image-contaiiner" src={{profile.background}} alt="">
+          </div>
+          <div class="profile-details-wrapper">
+            <div class="profile-image">
+              <div class="image-pro">
+                <img class="profile-image-container" src={{profile.avatar}} alt="">
+              </div>
+            </div>
+            <div class="profile-details-container">
+              <div class="user-profile-detail-view">
+                <label class="user-profile-name-label">Name : </label>
+                <div class="user-profile-name-value">{{profile.name}}</div>
+              </div>
+              <div class="user-profile-detail-view">
+                <label class="user-profile-name-label">UserId : </label>
+                <span class="user-profile-name-value">{{profile.userid}}</span>
+              </div>
+              <div class="user-profile-detail-view">
+                <label class="user-profile-name-label">Sub-Admin : </label>
+                <div class="user-profile-name-value">John Doe</div>
+              </div>
+
+              <div class="notifications">
+                <button class="btn-profile-buttons"><i class='far fa-bell' style='font-size:16px'></i></button>
+                <button class="btn-profile-buttons ml-1"><i class='far fa-bell' style='font-size:16px'></i></button>
+                <button class="btn-profile-buttons ml-1"><i class='far fa-bell' style='font-size:16px'></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="profile-posts-counts-wrapper">
+            <div class="post">
+              <div>
+                <div class="post-number">{{profile.post_count}}</div>
+                <div class="post-name">Posts</div>
+              </div>
+              <div>
+                <div class="post-number">{{profile.followers_count}}</div>
+                <div class="post-name">Followers</div>
+              </div>
+              <div>
+                <div class="post-number">{{profile.following_count}}</div>
+                <div class="post-name">Following</div>
+              </div>
+              <div>
+                <div class="post-number">{{profile.purchase_count}}</div>
+                <div class="post-name">Purchased</div>
+              </div>
+              <div>
+                <div class="post-number">{{profile.profile_category_name}}</div>
+                <div class="post-name">Profile Type</div>
+              </div>
+            </div>
+          </div>
+          <div class="profile-notification-wrapper">
+            <div class="tabs-wrapper">
+              <div class="tabs-container">
+
+                <div><i class='far fa-bell' style='font-size:16px'></i></div>
+                <div class="tabs-heading">Feautured</div>
+
+              </div>
+              <div class="tabs-container">
+
+                <div><i class='far fa-bell' style='font-size:16px'></i></div>
+                <div class="tabs-heading">Feautured</div>
+
+              </div>
+              <div class="tabs-container">
+
+                <div><i class='far fa-bell' style='font-size:16px'></i></div>
+                <div class="tabs-heading">Feautured</div>
+
+              </div>
+              <div class="tabs-container">
+
+                <div><i class='far fa-bell' style='font-size:16px'></i></div>
+                <div class="tabs-heading">Feautured</div>
+
+              </div>
+              <div class="tabs-container">
+
+                <div><i class='far fa-bell' style='font-size:16px'></i></div>
+                <div class="tabs-heading">Feautured</div>
+
+              </div>
+              <div class="tabs-container">
+
+                <div><i class='far fa-bell' style='font-size:16px'></i></div>
+                <div class="tabs-heading">Feautured</div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
     </div>
 
   </ng-container>
 
   <ng-container *ngIf="gridViewActive">
-    <p>Grid View coming Soon ....</p>
+    <div class="grid-view-wrapper">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../assets/nature.jpg" alt="Card image cap">
+        <div class="card-body">
+          <img class="image-card" src="../../assets/girl.jpg" alt="">
+          <p class="card-text t">Animals lover, CEO of @saveaniglo, #lottieschmitdt</p>
+        </div>
+
+        <div class="post">
+          <div>
+            <div class="post-number">12</div>
+            <div class="post-name">Posts</div>
+          </div>
+          <div>
+            <div class="post-number">486</div>
+            <div class="post-name">Followers</div>
+          </div>
+          <div>
+            <div class="post-number">1.2K</div>
+            <div class="post-name">Following</div>
+          </div>
+          <div>
+            <div class="post-number">06</div>
+            <div class="post-name">Purchased</div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../assets/nature.jpg" alt="Card image cap">
+        <div class="card-body">
+          <img class="image-card" src="../../assets/girl.jpg" alt="">
+          <p class="card-text t">Animals lover, CEO of @saveaniglo, #lottieschmitdt</p>
+        </div>
+
+        <div class="post">
+          <div>
+            <div class="post-number">12</div>
+            <div class="post-name">Posts</div>
+          </div>
+          <div>
+            <div class="post-number">486</div>
+            <div class="post-name">Followers</div>
+          </div>
+          <div>
+            <div class="post-number">1.2K</div>
+            <div class="post-name">Following</div>
+          </div>
+          <div>
+            <div class="post-number">06</div>
+            <div class="post-name">Purchased</div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../assets/nature.jpg" alt="Card image cap">
+        <div class="card-body">
+          <img class="image-card" src="../../assets/girl.jpg" alt="">
+          <p class="card-text t">Animals lover, CEO of @saveaniglo, #lottieschmitdt</p>
+        </div>
+
+        <div class="post">
+          <div>
+            <div class="post-number">12</div>
+            <div class="post-name">Posts</div>
+          </div>
+          <div>
+            <div class="post-number">486</div>
+            <div class="post-name">Followers</div>
+          </div>
+          <div>
+            <div class="post-number">1.2K</div>
+            <div class="post-name">Following</div>
+          </div>
+          <div>
+            <div class="post-number">06</div>
+            <div class="post-name">Purchased</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../assets/nature.jpg" alt="Card image cap">
+        <div class="card-body">
+          <img class="image-card" src="../../assets/girl.jpg" alt="">
+          <p class="card-text t">Animals lover, CEO of @saveaniglo, #lottieschmitdt</p>
+        </div>
+
+        <div class="post">
+          <div>
+            <div class="post-number">12</div>
+            <div class="post-name">Posts</div>
+          </div>
+          <div>
+            <div class="post-number">486</div>
+            <div class="post-name">Followers</div>
+          </div>
+          <div>
+            <div class="post-number">1.2K</div>
+            <div class="post-name">Following</div>
+          </div>
+          <div>
+            <div class="post-number">06</div>
+            <div class="post-name">Purchased</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../assets/nature.jpg" alt="Card image cap">
+        <div class="card-body">
+          <img class="image-card" src="../../assets/girl.jpg" alt="">
+          <p class="card-text t">Animals lover, CEO of @saveaniglo, #lottieschmitdt</p>
+        </div>
+
+        <div class="post">
+          <div>
+            <div class="post-number">12</div>
+            <div class="post-name">Posts</div>
+          </div>
+          <div>
+            <div class="post-number">486</div>
+            <div class="post-name">Followers</div>
+          </div>
+          <div>
+            <div class="post-number">1.2K</div>
+            <div class="post-name">Following</div>
+          </div>
+          <div>
+            <div class="post-number">06</div>
+            <div class="post-name">Purchased</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../assets/nature.jpg" alt="Card image cap">
+        <div class="card-body">
+          <img class="image-card" src="../../assets/girl.jpg" alt="">
+          <p class="card-text t">Animals lover, CEO of @saveaniglo, #lottieschmitdt</p>
+        </div>
+
+        <div class="post">
+          <div>
+            <div class="post-number">12</div>
+            <div class="post-name">Posts</div>
+          </div>
+          <div>
+            <div class="post-number">486</div>
+            <div class="post-name">Followers</div>
+          </div>
+          <div>
+            <div class="post-number">1.2K</div>
+            <div class="post-name">Following</div>
+          </div>
+          <div>
+            <div class="post-number">06</div>
+            <div class="post-name">Purchased</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../assets/nature.jpg" alt="Card image cap">
+        <div class="card-body">
+          <img class="image-card" src="../../assets/girl.jpg" alt="">
+          <p class="card-text t">Animals lover, CEO of @saveaniglo, #lottieschmitdt</p>
+        </div>
+
+        <div class="post">
+          <div>
+            <div class="post-number">12</div>
+            <div class="post-name">Posts</div>
+          </div>
+          <div>
+            <div class="post-number">486</div>
+            <div class="post-name">Followers</div>
+          </div>
+          <div>
+            <div class="post-number">1.2K</div>
+            <div class="post-name">Following</div>
+          </div>
+          <div>
+            <div class="post-number">06</div>
+            <div class="post-name">Purchased</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../assets/nature.jpg" alt="Card image cap">
+        <div class="card-body">
+          <img class="image-card" src="../../assets/girl.jpg" alt="">
+          <p class="card-text t">Animals lover, CEO of @saveaniglo, #lottieschmitdt</p>
+        </div>
+
+        <div class="post">
+          <div>
+            <div class="post-number">12</div>
+            <div class="post-name">Posts</div>
+          </div>
+          <div>
+            <div class="post-number">486</div>
+            <div class="post-name">Followers</div>
+          </div>
+          <div>
+            <div class="post-number">1.2K</div>
+            <div class="post-name">Following</div>
+          </div>
+          <div>
+            <div class="post-number">06</div>
+            <div class="post-name">Purchased</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../assets/nature.jpg" alt="Card image cap">
+        <div class="card-body">
+          <img class="image-card" src="../../assets/girl.jpg" alt="">
+          <p class="card-text t">Animals lover, CEO of @saveaniglo, #lottieschmitdt</p>
+        </div>
+
+        <div class="post">
+          <div>
+            <div class="post-number">12</div>
+            <div class="post-name">Posts</div>
+          </div>
+          <div>
+            <div class="post-number">486</div>
+            <div class="post-name">Followers</div>
+          </div>
+          <div>
+            <div class="post-number">1.2K</div>
+            <div class="post-name">Following</div>
+          </div>
+          <div>
+            <div class="post-number">06</div>
+            <div class="post-name">Purchased</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </ng-container>
 
   <div class="app-users-tabs">

@@ -9,11 +9,12 @@ import { CommonService } from '../services/common.service';
 export class AppUsersComponent implements OnInit {
   listViewActive = true;
   gridViewActive = false;
-  allUserList:any;
+  allUserList: any;
+  profileView: boolean = false;
+  appUserProfile: any;
   constructor(private commonService: CommonService) { }
 
   ngOnInit(): void {
-
     this.appUserList();
   }
 
@@ -22,12 +23,25 @@ export class AppUsersComponent implements OnInit {
     this.commonService.getAppUsers().subscribe(
       (res: any) => {
         console.log(res);
-        this.allUserList= res.response;
+        this.allUserList = res.response;
       },
       (err) => {
         console.log(err);
       }
     );
+  }
+
+  getUserProfile(user: any) {
+    console.log(user);
+    this.commonService.getAppUserProfile(user.userid).subscribe(
+      (res: any) => {
+        this.appUserProfile = res.response;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+    this.profileView = true;
   }
 
   listViewTab() {

@@ -21,7 +21,7 @@ export class UsersComponent implements OnInit {
     username: ['', Validators.required],
     avatar: ['', Validators.required],
   });
-  constructor(private commonService: CommonService, private fb: FormBuilder) {}
+  constructor(private commonService: CommonService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.allUsersList();
@@ -91,26 +91,21 @@ export class UsersComponent implements OnInit {
     console.log(this.addUserForm.value);
     let fd = new FormData();
     fd.append(
-      'first_name',
-      this.convertToString(this.addUserForm.value.first_name)
+      'first_name', this.addUserForm.value.first_name!
     );
     fd.append(
-      'last_name',
-      this.convertToString(this.addUserForm.value.last_name)
+      'last_name', this.addUserForm.value.last_name!
     );
     fd.append(
-      'designation',
-      this.convertToString(this.addUserForm.value.designation)
+      'designation', this.addUserForm.value.designation!
     );
-    fd.append('role_id', this.convertToString(this.addUserForm.value.role_id));
-    fd.append('email', this.convertToString(this.addUserForm.value.email));
+    fd.append('role_id', this.addUserForm.value.role_id!);
+    fd.append('email', this.addUserForm.value.email!);
     fd.append(
-      'password',
-      this.convertToString(this.addUserForm.value.password)
+      'password', this.addUserForm.value.password!
     );
     fd.append(
-      'username',
-      this.convertToString(this.addUserForm.value.username)
+      'username', this.addUserForm.value.username!
     );
     fd.append('avatar', this.avatarFile);
 

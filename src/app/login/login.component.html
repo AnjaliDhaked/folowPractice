@@ -1,27 +1,60 @@
 <div>
-    <div class="containe">
-        <div class="left-side">
-            <img class="left-side" src="../../assets/background.png" alt="">
-        </div>
-        <div class="right-side">
-            <div class="login" >
-                <div class="title">Welcome Back!</div>
-                <div class="description">Please enter your User ID to continue</div>
-                
-                    <input  class="input-id" type="email" name="username" id="username" placeholder=" userid.johndoe" [(ngModel)] ="loginData.username">
-
-                    <div class="description">Please enter your User ID to continue</div>
-                
-                    <input class="input-id" type="password" name="password" id="password" placeholder="Password" [(ngModel)]="loginData.password">
-                   
-                <div class="login-checkbox">
-                    <input type="checkbox" name="" id="keep">
-                    <label for="keep" class="keep-login">Keep Me logged In</label>
-                </div>
-                <div class="login-button">
-                    <button type="submit" (click)="loginProcess()" class="btn-login" >Login</button>
-                </div>
-            </div>
-        </div>
+  <div class="containe">
+    <div class="left-side">
+      <img class="left-side" src="../../assets/background.png" alt="">
     </div>
+    <div class="right-side">
+      <div class="login">
+        <div class="title">Welcome Back!</div>
+        <div class="description">Please enter your User ID to continue</div>
+
+        <input class="input-id" type="email" name="username" id="username" placeholder=" userid.johndoe"
+          [(ngModel)]="loginData.username">
+
+        <div class="description2">Please enter your User ID to continue</div>
+
+        <input class="input-id" type="password" name="password" id="password" placeholder="Password"
+          [(ngModel)]="loginData.password">
+
+        <!-- <div class="login-checkbox">
+          <input type="checkbox" name="" id="keep">
+          <label for="keep" class="keep-login">Keep Me logged In</label>
+        </div> -->
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="super_admin" name="flexRadioDefault" id="superAdmin"
+            [(ngModel)]="isSuperAdmin">
+          <label class="form-check-label" for="superAdmin">
+            Login as Super Admin
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="admin" name="flexRadioDefault" id="admin"
+            [(ngModel)]="isSuperAdmin">
+          <label class="form-check-label" for="admin">
+            Login as Admin
+          </label>
+        </div>
+
+        <!-- <div class="login-checkbox">
+          <input type="checkbox" name="superAdmin" id="superAdmin">
+          <label for="superAdmin" class="superAdmin"></label>
+        </div>
+        <div class="login-checkbox">
+          <input type="checkbox" name="admin" id="admin">
+          <label for="admin" class="admin"></label>
+        </div> -->
+
+
+
+
+
+
+
+        <div class="login-button">
+          <button type="submit" (click)="loginProcess()" class="btn-login">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

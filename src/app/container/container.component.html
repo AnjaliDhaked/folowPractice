@@ -15,9 +15,11 @@
     <div class="sidenav-menu">
       <div class="sidenav-middle-box">
         <div [ngClass]="{ menu: item.active, 'menu-items': true }" *ngFor="let item of sidebarList; index as i">
-          <div *ngIf="item.label!=='Users/Roles'" (click)="selectMenu(i)">
-            <i class="{{ item.class }}" style="font-size: 16px"></i>
-            {{ item.label }}
+          <div *ngIf="!item.hide">
+            <div *ngIf="item.label!=='Users/Roles'" (click)="selectMenu(i)">
+              <i class="{{ item.class }}" style="font-size: 16px"></i>
+              {{ item.label }}
+            </div>
           </div>
 
           <!-- <div *ngIf="item.label=='Users/Roles'" class="accordion accordion-flush" id="accordionFlushExample">
@@ -40,13 +42,13 @@
 
     </div>
     <div class="btn-logout">
-      <button class="logout">Logout</button>
+      <button class="logout" (click)="logout()">Logout</button>
     </div>
 
     <div class="component-render-wrapper">
       <div class="upper-nav">
         <div class="upper-right">
-          
+
           <div class="welcome-back">
             <div class="hello-title">Hello</div>
             <div class="welcome-title">Welcome Back !</div>
@@ -72,8 +74,8 @@
         </div>
       </div>
 
-      <div class="component-container">
-        <hr>
+      <div class="component-container" style="height: 88%">
+
         <router-outlet></router-outlet>
       </div>
     </div>

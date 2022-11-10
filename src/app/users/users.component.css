@@ -344,6 +344,7 @@ opacity: 0.5;
 .details-box{
   display: flex;
   grid-gap: 4%;
+  margin-left: 25%;
 }
 .left-box .right-box{
   display: flex;

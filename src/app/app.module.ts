@@ -18,6 +18,7 @@ import { AppUsersComponent } from './app-users/app-users.component';
 import { UsersComponent } from './users/users.component';
 import { EventsComponent } from './events/events.component';
 import { SearchPipe } from './pipe/search.pipe';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,7 @@ import { SearchPipe } from './pipe/search.pipe';
     ReactiveFormsModule,
     // MatCheckboxModule,
     BrowserAnimationsModule,
-    // MatSelectModule
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

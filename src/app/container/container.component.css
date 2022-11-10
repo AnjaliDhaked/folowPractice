@@ -8,7 +8,9 @@
   .sidenav-wrapper {
     width: 17%;
     height: 100%;
-    background: linear-gradient(348.72deg, #7B0FF5 -48.29%, #3734A9 131.09%);
+    background-image:url(../../assets/back.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: grid;
     grid-template-rows: 1.3fr 5fr .5fr;
     /* flex-direction: column; */
@@ -32,10 +34,12 @@
     top: 0;
     height: 11%;
     width: 83%;
+    border-bottom: 1px solid grey;
   }
 
   .component-container {
     margin-top: 90px;
+    background-color: white;
   }
 
 
@@ -113,22 +117,15 @@ border: 1.11979px solid #FFFFFF;
     /* align-items: center; */
 }
 .sidenav-middle-box{
-    margin-left: 19%;
-    margin-top: 10%;
+  margin-left: 16%;
+  margin-top: 11%;
 }
 .menu-items{
-    font-family: 'Exo';
-font-style: normal;
-font-weight: 400;
-font-size: 17.9166px;
-line-height: 160%;
-margin-top: 8%;
-/* identical to box height, or 29px */
-
-
-color: #FFFFFF;
-
-opacity: 0.5;
+  font-weight: 400;
+  font-size: 15.9166px;
+  margin-top: 17%;
+  color: #FFFFFF;
+  opacity: 0.5;
 }
 .menu{
     opacity: 1;
