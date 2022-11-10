@@ -25,7 +25,7 @@ export class LoginGuard implements CanActivate {
     if (!token) {
       return true;
     } else {
-      this.router.navigate(['/auth/users-roles']);
+      this.router.navigate(['/auth/users']);
     }
     return false;
   }

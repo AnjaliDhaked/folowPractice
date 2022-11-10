@@ -19,6 +19,8 @@ import { UsersComponent } from './users/users.component';
 import { EventsComponent } from './events/events.component';
 import { SearchPipe } from './pipe/search.pipe';
 import { MatSelectModule } from '@angular/material/select';
+import { ShopsComponent } from './shops/shops.component';
+import { ProductsComponent } from './products/products.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import { MatSelectModule } from '@angular/material/select';
     AppUsersComponent,
     UsersComponent,
     EventsComponent,
-    SearchPipe
+    SearchPipe,
+    ShopsComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

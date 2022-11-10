@@ -2,15 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './guard/login.guard';
-import { UsersRolesComponent } from './users-roles/users-roles.component';
 import { AuthGuard } from './guard/auth.guard';
 import { ContainerComponent } from './container/container.component';
 import { RolesComponent } from './roles/roles.component';
-import { AddRoleComponent } from './add-role/add-role.component';
-import { AddNewRolesComponent } from './add-new-roles/add-new-roles.component';
 import { PostsComponent } from './posts/posts.component';
 import { AppUsersComponent } from './app-users/app-users.component';
 import { UsersComponent } from './users/users.component';
+import { ShopsComponent } from './shops/shops.component';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   {
@@ -25,22 +24,8 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     children: [
       {
-        path: 'users-roles',
-        component: UsersRolesComponent,
-      },
-      {
         path: 'roles',
-        component: RolesComponent,
-        children: [
-          {
-            path: '',
-            component: AddRoleComponent,
-          },
-          {
-            path: 'add-new-role',
-            component: AddNewRolesComponent,
-          },
-        ],
+        component: RolesComponent
       },
       {
         path: 'app-users',
@@ -53,6 +38,14 @@ const routes: Routes = [
       {
         path: 'users',
         component: UsersComponent,
+      },
+      {
+        path: 'shops',
+        component: ShopsComponent,
+      },
+      {
+        path: 'products',
+        component: ProductsComponent,
       },
     ],
   },

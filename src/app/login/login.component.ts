@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         // localStorage.setItem('adminPermissio', );
         this.commonService.loginData = res.response;
         localStorage.setItem('token', res.response[0].token);
-        this.router.navigate(['auth/users-roles']);
+        this.router.navigate(['auth/users']);
       },
       (error: any) => {
         const message = error.error.message || 'Something went wrong!';

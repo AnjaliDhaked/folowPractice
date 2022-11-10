@@ -1,0 +1,12 @@
+.shop-image-wrapper{
+  height: 50px;
+  width: 50px;
+}
+.shop-image-container{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.shop-name-image{
+  display: flex;
+}

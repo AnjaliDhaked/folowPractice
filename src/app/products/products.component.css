@@ -1,0 +1,37 @@
+.example-card {
+  max-width: 400px;
+}
+.image-profile{
+  height: 50px;
+  width: 50px;
+}
+.image{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.card-title{
+  display: flex;
+}
+.card-bod{
+  flex: 1 1 auto;
+  display: flex;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--bs-card-color);
+  justify-content: space-between;
+}
+.card-bodyy{
+  flex: 1 1 auto;
+  display: flex;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--bs-card-color);
+  margin-top: -0.70rem;
+}
+.card-img{
+  width: 241px;
+  height: 213px;
+}
+.image-background{
+  height: 100%;
+  width: 100%;
+}
